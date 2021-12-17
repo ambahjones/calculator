@@ -1,0 +1,63 @@
+html {
+  text-align: center;
+  font-family: "Abril Fatface", cursive;
+  background-image: url("../images/tombstonesunsplash.jpg");
+  background-size: contain;
+}
+
+button {
+  font-family: "Abril Fatface", cursive;
+  font-size: 2rem;
+  background: rgba(204, 204, 204, 0.8);
+  border: 2px solid rgba(102, 102, 102, 0.8);
+  border-radius: 25px;
+  height: 3rem;
+  width: 98%;
+}
+
+.calcWrapper {
+  width: 40%;
+  height: 32rem;
+  margin: 4rem auto;
+  border: 1px solid rgba(102, 102, 102, 0.8);
+  border-radius: 100px 100px 5px 5px;
+  background: linear-gradient(
+    rgba(204, 204, 204, 0.8),
+    10%,
+    rgba(102, 102, 102, 0.8),
+    70%,
+    rgba(0, 0, 0, 0.8)
+  );
+}
+
+.display {
+  background: rgba(204, 204, 204, 0.8);
+  width: 80%;
+  margin: 2rem auto;
+  height: 7rem;
+  border-radius: 25px;
+}
+
+.inputs {
+  margin: 1rem 1.5rem 0 0;
+  font-size: 3.5rem;
+  text-align: right;
+  line-height: 6rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: repeat(5, 20%);
+  width: 90%;
+  height: 19.5rem;
+  margin: 0 auto;
+}
+
+#clear {
+  grid-column: 1 / 3;
+}
+
+#calculate {
+  grid-column: 3 / 5;
+}

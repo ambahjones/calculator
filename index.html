@@ -5,12 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <div class="calcWrapper">
-        <div class="display"></div>
+        <div class="display">
+            <p class="inputs"></p>
+        </div>
 
-        <div class="buttons"></div>
+        <div class="buttons">
+            <button id="clear">Clear</button>
+            <button id="delete">Del.</button>
+            <button class="opBtn" value="/" id="divide">/</button>
+
+            <button class="numBtn" value="7" id="seven">7</button>
+            <button class="numBtn" value="8" id="eight">8</button>
+            <button class="numBtn" value="9" id="nine">9</button>
+            <button class="opBtn" value="x" id="multiply">x</button>
+
+            <button class="numBtn" value="4" id="four">4</button>
+            <button class="numBtn" value="5" id="five">5</button>
+            <button class="numBtn" value="6" id="six">6</button>
+            <button class="opBtn" value="-" id="subtract">-</button>
+
+            <button class="numBtn" value="3" id="three">3</button>
+            <button class="numBtn" value="2" id="two">2</button>
+            <button class="numBtn" value="1" id="one">1</button>
+            <button class="opBtn" value="+" id="add">+</button>
+
+            <button class="numBtn" value="0" id="zero">0</button>
+            <button class="numBtn" value="." id="decimal">.</button>
+            <button id="calculate">=</button>
+        </div>
     </div>
    <script src="calc.js"></script> 
 </body>
