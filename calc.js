@@ -3,22 +3,23 @@ const clear = document.querySelector('#clear');
 const back = document.querySelector('#delete');
 const numBtns = document.querySelectorAll('.numBtn');
 const opBtns = document.querySelectorAll('.opBtn');
-const equalBtn = document.querySelector('#equals');
 
 let input = [];
 let total = 0;
 let actingNums = [];
-let operator;
+let operator1;
+let operator2;
 
-//need vars for num1, num2, and total when an operation is called on those numbers
-//join input into one string then parseint to a number and store in variable
-//let numString = input.join('');
-//let workableNum = parseInt(numString);
+
+function resetDisplay() {
+    numDisplay.classList.remove('mdText', 'smText');
+}
 
 clear.addEventListener('click', () => {
     numDisplay.innerHTML = '';
     input = [];
     total = 0;
+    resetDisplay();
     console.log(input);
 })
 
@@ -26,20 +27,10 @@ function formatNum(arr) {
     let numString = arr.join('');
     let workableNum = parseInt(numString);
 
+    actingNums.push(workableNum);
+
     if(isNaN(workableNum)) {
         workableNum = total;
-    }
-
-    if(actingNums.length < 2) {
-        if(total > 0) {
-            actingNums.push(total);
-        }
-        actingNums.push(workableNum);
-        console.log(actingNums);
-    } 
-
-    if(actingNums.length == 2 && operator) {
-        operate(operator, actingNums[0], actingNums[1]);
     }
 }
 
@@ -54,6 +45,14 @@ numBtns.forEach((btn) => {
         numDisplay.appendChild(showNum);
         input.push(btn.value); //max input comfortably displayed: 13 numbers
 
+        if(input.length > 13) {
+            numDisplay.classList.add('mdText');
+        }
+
+        if(input.length > 19) {
+            numDisplay.classList.add('smText');
+        }
+
         console.log(input);
     })
 })
@@ -64,9 +63,18 @@ opBtns.forEach((btn) => {
         formatNum(input);
 
         input = [];
-        operator = op;
-        console.log(operator);
+        if(!operator1) {
+            operator1 = op; 
+        } else {
+            operator2 = op;
+        }
+
     })
+})
+
+back.addEventListener('click', () => {
+    input.pop();
+    numDisplay.removeChild(numDisplay.lastChild);
 })
 
 function add(num1, num2) {
@@ -116,3 +124,22 @@ function operate(operation, num1, num2) {
     console.log(actingNums);
     displayResult(total);
 }
+
+function evaluate() {
+    if(operator1 && actingNums.length == 1) {
+        formatNum(input);
+    }
+
+    if(actingNums.length == 0 && total > 0) {
+        actingNums.push(total);
+        console.log(actingNums);
+    } 
+
+    if(actingNums.length == 2 && operator1) {
+        operate(operator1, actingNums[0], actingNums[1]);
+
+        actingNums = [];
+    }
+}
+
+evaluate();
